@@ -1,5 +1,3 @@
-
-
 const String getTodoQuery = """
 query(\$id: ID!) {
   todo(id: \$id) {
@@ -9,7 +7,6 @@ query(\$id: ID!) {
   }
 }
 """;
-
 
 const createTodoMutation = """
 mutation (
@@ -58,5 +55,25 @@ const String getAllTodosQuery = """query (
   }
 }""";
 
-
-
+const String fetchmore = """query (
+  \$options: PageQueryOptions
+) {
+  todos(options: \$options) {
+    
+  links{
+    next{
+    page 
+    limit
+    }
+  }
+    data {
+      id
+      title
+    }
+    meta {
+      totalCount
+    }
+    
+  }
+}
+""";
